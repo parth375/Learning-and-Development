@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		ArrayList a1= new ArrayList();
+		ArrayList l=new ArrayList();
+		l.add("C");
+		l.add("F");
+		l.add("F");
+		
+		a1.add("A");
+		a1.add("B");
+		a1.addAll(l);
+		int i=a1.lastIndexOf("F");
+		a1.add(3,"G");
+		a1.remove(5);
+		a1.set(1,"Z");
+		System.out.println(a1);
+		System.out.println(i);
+		a1.clear();
+			System.out.println(a1);
+	}
+}

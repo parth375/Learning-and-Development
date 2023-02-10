@@ -1,0 +1,21 @@
+class A{
+    public void Av(){
+        System.out.println("A");
+    }
+}
+class B extends A{
+  
+ 
+    public void  Av(){
+         super.Av();
+        System.out.println("B");
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		B b1=new B();
+		b1.Av();
+	}
+}

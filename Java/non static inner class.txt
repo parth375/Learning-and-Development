@@ -1,0 +1,15 @@
+class Outer{
+    class Inner{
+        void func(){
+            System.out.println("Inner");
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Outer o1=new Outer();
+		Outer.Inner in=o1.new Inner();
+		in.func();
+	}
+}

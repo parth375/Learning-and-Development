@@ -1,0 +1,26 @@
+class child{
+    public void f1(){
+        System.out.println("class");
+    }
+}
+class CLASS{
+    child c = new child(){//class anonymous class also child class
+        //Body of class
+        public void f1(){//late binding and overrinding works
+            System.out.println("anonymous");
+        }
+         public void f2(){
+            System.out.println("anonymous");//does not worl early binding
+        }
+       
+    };
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+	 CLASS c1=new CLASS();//object;
+	 c1.c.f1();//object calling object
+	}
+}

@@ -1,0 +1,17 @@
+class A{
+    private int a;
+    {a=5;} //Initialization Block//
+    private static int b;
+    static
+    {b=6;} //Static Initialization Block//
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	
+		A a1=new A();
+	     
+	
+	}
+}

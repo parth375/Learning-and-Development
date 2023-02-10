@@ -1,0 +1,32 @@
+class Box{
+    private
+    int length;
+    int breadth;
+    int height;
+    public void dime(int l, int   b, int h){
+        length=l;
+        breadth=b;
+        height=h;
+    }
+    public void show(){
+        System.out.println("l = "+length);
+        
+        System.out.println("b = "+breadth);
+        
+        System.out.println("h = "+height);
+    }
+    public void add(int a, int b){
+        length=a;
+        breadth=b;
+    System.out.println(2*length*breadth);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Box smallbox= new Box();
+		smallbox.dime(12,10,15);
+		smallbox.show();
+		smallbox.add(2,4);
+	}
+}

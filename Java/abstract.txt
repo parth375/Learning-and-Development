@@ -1,0 +1,47 @@
+abstract class Person{
+    
+    int age;
+    String name;
+    
+}
+class student extends Person{
+    private
+    int roll_no;
+    public void input(int a, int r, String n){
+        age=a;
+        roll_no=r;
+        name=n;
+    }
+    public void show(){
+        System.out.println("name" + name);
+         System.out.println("roll" + roll_no);
+          System.out.println("age" + age);
+    }
+}
+class Teacher extends Person{
+    private
+    String subject;
+     public void input(int a, String s, String n){
+        age=a;
+      subject=s;
+        name=n;
+    }
+    public void show(){
+        System.out.println("name" + name);
+         System.out.println("subject" + subject);
+          System.out.println("age" + age);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Person p=new Person();//this will error
+	student s1=new student();
+	Teacher t1=new Teacher();
+	s1.input(20, 18,"Raj");
+	t1.input(30,"maths","Shaya");
+	s1.show();
+	t1.show();
+	
+	}
+}

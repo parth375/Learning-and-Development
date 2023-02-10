@@ -1,0 +1,44 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String s1=new String("Computmer");//c0 o1 m2 p3 u4 t5 m6 e7 r8//
+		int idx= s1.indexOf("put");
+		int i=s1.indexOf('m');
+		int l=s1.lastIndexOf('m');
+		System.out.println(idx);
+		System.out.println(i);
+		System.out.println(l);
+	     idx= s1.lastIndexOf("tm",3);//going right to left so ans=-1//
+		 i=s1.indexOf('m',3);
+		 l=s1.indexOf("tm",3);
+		 System.out.println(idx);
+		System.out.println(i);
+		System.out.println(l);
+		String s2=new String("Computmer");
+		if(s1.equals(s2)){
+		    System.out.println("Same");
+		}
+		else{
+		    System.out.println("Not same");
+		}
+		if(s1.equalsIgnoreCase(s2)){
+		    System.out.println("same");//not bother case of string 
+		}
+	    int ans=s1.compareTo(s2);
+	    if(ans==0){
+	        System.out.println("Same");
+	    }
+	    else if(i>0){
+	        System.out.println("Opp");
+	    }
+	    else{
+	        System.out.println("Not Opp");
+	    }
+	    String s3=s1.substring(4);//one index no end 
+	    System.out.println(s3);
+	    s3=s1.substring(2,4);//start index include end index not inclded//
+	    System.out.println(s3);
+	
+	}
+}

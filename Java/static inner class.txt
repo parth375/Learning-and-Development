@@ -1,0 +1,17 @@
+class Outer{
+    int x=10;// this will give error wrong way
+    static int x=10;// correct way;
+    static class Inner{
+        void func(){
+            System.out.println("Inner" + " " + x);
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	
+		Outer.Inner in= new Outer.Inner();
+		in.func();
+	}
+}
