@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class  A{
+    public:
+    int a;
+    int b;
+    void set(int x, int y){
+        a=x;
+        b=y;
+    }
+   A operator+(A var){
+       A temp;
+      temp.a=var.a+a;
+      temp.b=var.b+b;
+       return temp;
+   }
+};
+int main()
+{
+ A ob1,ob2,ob3;
+ ob1.set(2,3);
+ ob2.set(4,5);
+// cout<<ob1+ob2; wrong because + and << operator is not defined in this class
+// create a function for these operators
+ob3=ob1+ob2;
+cout<<ob3.a<<" "<<ob3.b;
+}
