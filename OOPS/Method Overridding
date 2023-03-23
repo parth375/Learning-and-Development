@@ -1,0 +1,34 @@
+
+#include <iostream>
+using namespace std;
+class  A{
+    public:
+   virtual void show(){
+        cout<<"A";
+    }
+    void fun(){
+        cout<<"Class Parent";
+    }
+};
+class B: public A{
+    public:
+    void show(){
+        cout<<"B";
+    }
+    void fun(){
+        cout<<"Class Child";
+    }
+};
+int main()
+{
+ A *a;   // pointer of parent/base class  dynamic objecy
+ B b;    // static object of child class
+ a= &b; 
+ a->show(); // virtual function calling child class late binding
+ // here no matter which class object you use, it will call the child 
+ // class function only
+ cout<<endl;
+ a->fun(); // non virtual function calling parent class based Early Binding
+// here it will decide which function to use based on the class
+    return 0;
+}
