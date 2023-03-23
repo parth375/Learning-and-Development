@@ -25,6 +25,6 @@ int main()
  ob2.set(4,5);
 // cout<<ob1+ob2; wrong because + and << operator is not defined in this class
 // create a function for these operators
-ob3=ob1+ob2;
+ob3=ob1+ob2; // or ob3 = ob1.operator+(ob2);
 cout<<ob3.a<<" "<<ob3.b;
 }
