@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class A{
+    public:
+    int a;          
+    int b;             
+   
+};
+class B:public A{
+    public:
+     B(int x, int y){
+       a=x;
+       b=y;
+    }
+  void show(){
+        cout<<a<<" "<<b;
+    }
+};
+int main()
+{
+ 
+B b(2,3);
+b.show();
+
+    return 0;
+}
+// Here data members are declared in the Base Class 
+// Constructor are declared in the Derived Class also the methods
