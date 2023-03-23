@@ -10,10 +10,13 @@ class  A{
     }
    A operator+(A var){
        A temp;
+       
       temp.a=var.a+a;
       temp.b=var.b+b;
        return temp;
+      // temp.set(var.a+a,var.b+b); can also use this instead of above three lines and then return
    }
+   
 };
 int main()
 {
