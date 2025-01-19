@@ -26,5 +26,10 @@ class Car:
     def show(self):
         print(f'Car Model {self.md}')
 
-cr=Car("Tata","Red","GZB")
-cr.show()
+## Initialize, return object from object.
+def intro(md,cl,cy):
+    c1=Car(md,cl,cy)
+    return c1
+
+c_fn=intro("Tata","Green","DLH")
+

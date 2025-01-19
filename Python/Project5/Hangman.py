@@ -1,4 +1,4 @@
-from Strings import replace_in_string
+import Strings as st
 st=input("Enter Word ")
 hint=input("Enter a hint - ")
 chances=len(st)+3
@@ -14,7 +14,7 @@ while chances>0:
   ind=st.rfind((user))
   if ind==-1:
      chances-=1
-  temp2=replace_in_string(ans,user,ind)
+  temp2= st.replace_in_string(ans,user,ind)
   ans=temp2
   print(ans)
   if ans==st:

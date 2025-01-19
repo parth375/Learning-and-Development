@@ -1,0 +1,21 @@
+In Python
+
+Module - It is a single python file
+Package - It's a organized group of modules which are related to each other
+Library - A collection of modules and Packages
+
+to import a module
+ 
+import module_name
+
+to import a function from module
+
+from module_name import function_name
+
+to import Package
+
+import Package_name
+
+to import a module from Package
+
+from Package_name import module_name
