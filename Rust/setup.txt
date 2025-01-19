@@ -1,0 +1,23 @@
+----RUST----
+
+>It's Compiled Languague, meaning it will be compiled first into a binary and then exceuted.
+>Known for it's own memory management system aka Memory Safe Languague.
+>Fast,provides Cocurrency and gives you more control over memory of a system.
+>Better than JS because JS compiles and interpret each line of code so less optmize whereas rust precompiles and optimise 
+then convert to binary and then run which is generally fasteras there is no overhead or layers in between these process for 
+extra checks like in JS. 
+
+--Setup--
+
+>First download and install Rust into your system.
+>Then Begin Initialization by creating a new folder in VScode and run cargo init in CMD
+>cargo is similar to node in JS, it is the packet manager for rust whoose job is to install and manage third party libraries and comiple rust code.
+>After cargo init is exceuted a folder name src and Cargo.toml file is created.
+>src folder contains a main.rs file where you write your program code. 
+>toml file is just like package.json which helds the information of all the dependencies,metadata and libraries used of the project.
+> To run type cargo run
+> To optimize for release type cargo build --release
+
+--Extension--
+
+> rust analyzer
