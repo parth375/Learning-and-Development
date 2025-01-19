@@ -1,3 +1,3 @@
 # Languages
 
-Basics of Languages
+Nothing to read here.
