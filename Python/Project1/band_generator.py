@@ -1,0 +1,6 @@
+print("Welcome to band generator |/|")
+print("What's the name of the city you grew up in ?", end='\n')
+input1=input()
+print("Write down the name you think is c$$l.")
+input2=input()
+print("Your Band Name Is --> ", '#'+input1+input2+'#')
