@@ -1,0 +1,7 @@
+  dialect: postgresql
+  driver: psycopg2
+  hostname: localhost
+  port: 5433
+  db: postgres
+  username: postgres
+  password: Paarth@12

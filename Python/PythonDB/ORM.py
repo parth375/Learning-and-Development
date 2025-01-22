@@ -7,10 +7,13 @@
 from sqlalchemy import create_engine,Column,Integer,String
 from sqlalchemy.orm import declarative_base,sessionmaker
 from urllib.parse import quote
-
-raw_password = "Paarth@12"  # Raw password
-encoded_password = quote(raw_password)
-db_cred=f"postgresql+psycopg2://postgres:{encoded_password}@localhost:5433/postgres"
+import yaml
+with open("config.yaml",'r') as conf:
+    con=yaml.safe_load(conf)
+    print(con['hostname'])
+raw_password = con['password']  # Raw password
+encoded_password = quote(raw_password) ## this function safely encode specail characters so they can be used as normal characters
+db_cred=f"{con['dialect']}+{con['driver']}://{con['username']}:{encoded_password}@{con['hostname']}:{con['port']}/{con['db']}"
 
 try:
     db_connection=create_engine(db_cred)
