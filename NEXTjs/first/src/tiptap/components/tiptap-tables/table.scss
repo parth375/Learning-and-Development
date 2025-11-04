@@ -1,0 +1,81 @@
+// tiptap-node/table-node/table-node.scss
+.ProseMirror {
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+    
+    td, th {
+      min-width: 1em;
+      border: 1px solid var(--color-border);
+      padding: 8px;
+      vertical-align: top;
+      box-sizing: border-box;
+      position: relative;
+      
+      > * {
+        margin-bottom: 0;
+      }
+    }
+    
+    th {
+      font-weight: bold;
+      background-color: var(--color-background-light);
+    }
+    
+    .selectedCell {
+      position: relative;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(200, 200, 255, 0.4);
+        pointer-events: none;
+        z-index: 2;
+      }
+    }
+    
+    .column-resize-handle {
+      position: absolute;
+      right: -2px;
+      top: 0;
+      bottom: -2px;
+      width: 4px;
+      background-color: var(--color-primary);
+      pointer-events: none;
+      z-index: 3;
+    }
+  }
+  
+  &.resize-cursor {
+    cursor: col-resize;
+  }
+}
+
+// Add styles for the floating menu table buttons
+.floating-menu-container {
+  .tiptap-button-icon[data-table-icon="true"] {
+    color: var(--color-text);
+  }
+}
+
+// Add styles for the bubble menu table options
+.bubble-menu-container {
+  .table-controls {
+    display: flex;
+    gap: 4px;
+  }
+}
+
+// Ensure table visibility
+.ProseMirror table {
+  display: table;
+  visibility: visible;
+  border: 1px solid var(--color-border);
+}

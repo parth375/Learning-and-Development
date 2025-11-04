@@ -1,0 +1,148 @@
+// tiptap-node/drawing-board-node/drawing-board.scss
+
+.drawing-board-wrapper {
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color, #e2e8f0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  .drawing-board-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    .drawing-board-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem;
+      background-color: var(--toolbar-bg, #f8fafc);
+      border-bottom: 1px solid var(--border-color, #e2e8f0);
+      
+      .tool-group {
+        display: flex;
+        gap: 0.25rem;
+        
+        .tool-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2rem;
+          height: 2rem;
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: 0.25rem;
+          background-color: var(--button-bg, #ffffff);
+          cursor: pointer;
+          
+          &:hover {
+            background-color: var(--button-hover-bg, #f1f5f9);
+          }
+          
+          &.active {
+            background-color: var(--button-active-bg, #e2e8f0);
+            border-color: var(--button-active-border, #cbd5e1);
+          }
+          
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
+        }
+      }
+      
+      .color-width-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        
+        .color-picker {
+          width: 2rem;
+          height: 2rem;
+          padding: 0;
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: 0.25rem;
+          cursor: pointer;
+        }
+        
+        .stroke-width-select {
+          height: 2rem;
+          padding: 0 0.5rem;
+          border: 1px solid var(--border-color, #e2e8f0);
+          border-radius: 0.25rem;
+          background-color: var(--button-bg, #ffffff);
+          cursor: pointer;
+        }
+      }
+      
+      .clear-button {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-color, #e2e8f0);
+        border-radius: 0.25rem;
+        background-color: var(--button-bg, #ffffff);
+        cursor: pointer;
+        
+        &:hover {
+          background-color: var(--button-hover-bg, #f1f5f9);
+        }
+      }
+    }
+    
+    .drawing-canvas-container {
+      position: relative;
+      width: 100%;
+      
+      .drawing-canvas {
+        display: block;
+        background-color: #ffffff;
+        touch-action: none;
+      }
+    }
+  }
+  
+  // Dark mode support
+  .dark & {
+    border-color: var(--dark-border-color, #334155);
+    
+    .drawing-board-toolbar {
+      background-color: var(--dark-toolbar-bg, #1e293b);
+      border-color: var(--dark-border-color, #334155);
+      
+      .tool-button {
+        border-color: var(--dark-border-color, #334155);
+        background-color: var(--dark-button-bg, #1e293b);
+        
+        &:hover {
+          background-color: var(--dark-button-hover-bg, #334155);
+        }
+        
+        &.active {
+          background-color: var(--dark-button-active-bg, #475569);
+          border-color: var(--dark-button-active-border, #64748b);
+        }
+      }
+      
+      .color-width-group {
+        .color-picker {
+          border-color: var(--dark-border-color, #334155);
+        }
+        
+        .stroke-width-select {
+          border-color: var(--dark-border-color, #334155);
+          background-color: var(--dark-button-bg, #1e293b);
+          color: var(--dark-text-color, #f8fafc);
+        }
+      }
+      
+      .clear-button {
+        border-color: var(--dark-border-color, #334155);
+        background-color: var(--dark-button-bg, #1e293b);
+        color: var(--dark-text-color, #f8fafc);
+        
+        &:hover {
+          background-color: var(--dark-button-hover-bg, #334155);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+// floating-menu.scss
+
+// Common styles for floating menus
+.floating-menu-base {
+    background-color: var(--toolbar-bg, #ffffff);
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    z-index: 50;
+    
+    // Ensure menus work well in dark mode
+    [data-theme="dark"] & {
+      background-color: var(--toolbar-bg, #2d2d2d);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  // Floating menu (appears at cursor position)
+  .floating-menu-container {
+    @extend .floating-menu-base;
+    
+    .tiptap-button-icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .tiptap-button-text {
+      display: none; // Hide text in floating menu to save space
+    }
+    
+    // Compact toolbar group for floating menu
+    .tiptap-toolbar-group {
+      gap: 0.25rem;
+    }
+  }
+  
+  // Bubble menu (appears when text is selected)
+  .bubble-menu-container {
+    @extend .floating-menu-base;
+    
+    .tiptap-button-icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .tiptap-button-text {
+      display: none; // Hide text in bubble menu to save space
+    }
+    
+    // Compact toolbar group for bubble menu
+    .tiptap-toolbar-group {
+      gap: 0.25rem;
+    }
+  }
+  
+  // Tippy tooltip styling (used by Tiptap for floating/bubble menus)
+  .tippy-box {
+    &[data-theme~='tiptap-menu'] {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    &[data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: var(--toolbar-bg, #ffffff);
+      
+      [data-theme="dark"] & {
+        border-top-color: var(--toolbar-bg, #2d2d2d);
+      }
+    }
+    
+    &[data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: var(--toolbar-bg, #ffffff);
+      
+      [data-theme="dark"] & {
+        border-bottom-color: var(--toolbar-bg, #2d2d2d);
+      }
+    }
+  }
+  
+  // Animation for floating/bubble menus
+  @keyframes menuFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  // Apply animation to both menu types
+  .floating-menu-container,
+  .bubble-menu-container {
+    animation: menuFadeIn 0.2s ease-out;
+  }

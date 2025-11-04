@@ -7,29 +7,21 @@ print("Classes")
 #protected members are those which can only be access by inherited class
 #public members are those which can be access by all.
 
-class Worker:
-    def show(self):
-        print(f'Age is {self.ag}')
-
-class Son(Worker): #inheritance
-    def add(self):
-        print(self.ag)
-
-
 class Car:
     
-    def __init__(self,model,color,city):
-        self.md=model
-        self.col=color
-        self.cy=city
+    def __init__(self,type,color):
+        self.type=type
+        self.color=color
 
-    def show(self):
-        print(f'Car Model {self.md}')
+    def display(self):
+        print(f"Type of car {self.type} and color {self.color}")
 
-## Initialize, return object from object.
-def intro(md,cl,cy):
-    c1=Car(md,cl,cy)
-    return c1
 
-c_fn=intro("Tata","Green","DLH")
+car1=Car("SUV","RED")
+
+car1.display()
+
+
+
+
 
