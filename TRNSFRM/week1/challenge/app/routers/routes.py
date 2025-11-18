@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from TRNSFRM.week1.challenge.service.getStatus import get_status
+from TRNSFRM.week1.challenge.app.service.getStatus import get_status
 app=FastAPI()
 
 @app.get('/health')

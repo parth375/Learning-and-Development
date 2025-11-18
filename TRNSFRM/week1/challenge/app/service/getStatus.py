@@ -1,7 +1,4 @@
-from pydantic import BaseModel
-
-class HealthInfo(BaseModel):
-    status:str
+from schemas.common import HealthInfo
 
 def get_status()->HealthInfo:
 
