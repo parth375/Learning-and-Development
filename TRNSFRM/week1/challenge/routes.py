@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-from service import get_status
+from TRNSFRM.week1.challenge.service.getStatus import get_status
 app=FastAPI()
 
 @app.get('/health')
 def get_health():
 
     '''
-    The API return the heatlh/status of index
+    This is an GET API that fetches health of an index as response
     '''
     try:
         return get_status()
