@@ -5,11 +5,4 @@ class Config(BaseSettings):
     env:str='dev'
 
 
-confg=Config()
-
-
-def db_connect()->bool:
-    try:
-       return True
-    except:
-        print('Error connecting to DB')
+config=Config()

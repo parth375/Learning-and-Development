@@ -1,5 +1,8 @@
-def plus_one(x:int)->int:
-     return x+1
+from fastapi.testclient import TestClient
+from app.main import app
 
-def test_answer():
-     assert plus_one(3)==4
+client=TestClient(app)
+
+def test_api():
+    res=client.get("/heatlh")
+    assert res.status_code==200

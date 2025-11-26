@@ -1,14 +1,13 @@
-from fastapi import FastAPI
 import logging
-from TRNSFRM.week1.challenge.app.service.health import get_status
-from TRNSFRM.week1.challenge.app.service.health import readhiness_check
-from TRNSFRM.week1.challenge.app.core.config import db_connect
+from fastapi import APIRouter
+from services.health import get_status,readiness_check
+from .db import fake_db_check
 
 logger=logging.getLogger(__name__)
 
-app=FastAPI()
+router=APIRouter()
 
-@app.get('/health')
+@router.get('/health')
 def get_health():
 
     '''
@@ -16,21 +15,22 @@ def get_health():
     '''
     try:
         return get_status()
-    except:
-        print('Error occurred while fetching')
+    except Exception as e:
+        logger.error(f"Health check failed: {e}")
+        raise
 
 
-
-@app.get('/readniess')
-def get_health():
+@router.get('/readniess')
+def check_readiness():
 
     '''
-    This is an GET API that fetches health of an index as response
+    This is an GET API that checks the readiness of an configuration
     '''
     try:
-        return readhiness_check(db_connect)
-    except:
-        print('Error occurred while fetching')
+        return readiness_check(fake_db_check)
+    except Exception as e:
+        logger.error(f"Readiness check failed: {e}")
+        raise
 
 
 
