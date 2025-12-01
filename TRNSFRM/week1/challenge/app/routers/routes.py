@@ -1,6 +1,6 @@
 import logging
 from fastapi import APIRouter
-from services.health import get_status,readiness_check
+from services.health import get_status,readiness_check,check_version
 from .db import fake_db_check
 
 logger=logging.getLogger(__name__)
@@ -22,12 +22,22 @@ def get_health():
 
 @router.get('/readniess')
 def check_readiness():
-
     '''
     This is an GET API that checks the readiness of an configuration
     '''
     try:
         return readiness_check(fake_db_check)
+    except Exception as e:
+        logger.error(f"Readiness check failed: {e}")
+        raise
+
+@router.get('/version')
+def get_version():
+    '''
+    This is an GET API that checks the readiness of an configuration
+    '''
+    try:
+        return check_version()
     except Exception as e:
         logger.error(f"Readiness check failed: {e}")
         raise

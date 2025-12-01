@@ -1,4 +1,4 @@
-from schemas.common import HealthInfo,CheckInfo
+from schemas.common import HealthInfo,CheckInfo,VersionInfo
 from typing import Callable
 from core.config import config
 import logging
@@ -29,3 +29,12 @@ def readiness_check(conn_check:Callable[[],bool])->CheckInfo:
         logger.error(f"Failed: {e}")
         raise
 
+def check_version()->VersionInfo:
+    '''
+    The function check Database connection
+    '''
+    try:
+       return VersionInfo(version=config.APP_VERSION, app=config.APP_NAME)
+    except Exception as e:
+        logger.error(f"Failed: {e}")
+        raise

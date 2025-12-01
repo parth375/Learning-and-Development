@@ -7,3 +7,8 @@ class HealthInfo(BaseModel):
 
 class CheckInfo(BaseModel):
     status:str
+
+
+class VersionInfo(BaseModel):
+    version:str
+    app:str
