@@ -10,11 +10,11 @@ app=FastAPI()
 app.include_router(router)
 
 @app.exception_handler(Exception)
-def global_exception_handler(request:Request, exc:Exception):
+def global_exception_handler(request:Request, exc:Exception)-> JSONResponse:
     return JSONResponse(
-         status_code=500,
+         status_code=503,
         content={
-            "error": "internal_server_error",
+            "error": "service_unavaiable",
             "message": "Something went wrong. Please try again later."
         }
     )

@@ -12,7 +12,7 @@ def get_status()->HealthInfo:
     try:
         return HealthInfo(status="ok",app=config.APP_NAME)
     except Exception as e:
-        logger.error(f"Failed: {e}")
+        logger.error(f"Failed to fetch health data: {e}")
         raise
 
 
@@ -22,11 +22,11 @@ def readiness_check(conn_check:Callable[[],bool])->CheckInfo:
     '''
     try:
         if conn_check():
-            return CheckInfo(status="Connected")
+            return CheckInfo(status="connected")
         else:
-            return CheckInfo(status="Failed to Connected")
+            return CheckInfo(status="not_connected")
     except Exception as e:
-        logger.error(f"Failed: {e}")
+        logger.error(f"Readiness check failed: {e}")
         raise
 
 def check_version()->VersionInfo:

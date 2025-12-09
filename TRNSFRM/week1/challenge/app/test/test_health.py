@@ -3,7 +3,11 @@ from app.main import app
 
 client=TestClient(app)
 
-def test_api():
+def testing_health_api():
     res=client.get('/health')
     assert res.status_code==200
+
+    data=res.json()
+    assert data['status']=='ok'
+    assert "app" in data
 
