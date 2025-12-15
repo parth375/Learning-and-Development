@@ -1,15 +1,15 @@
 from schemas.common import HealthInfo,CheckInfo,VersionInfo
 from typing import Callable
 from core.config import config
-import logging
+from core.logging import logger
 
-logger=logging.getLogger(__name__)
 
 def get_status()->HealthInfo:
     '''
     The function return the heatlh/status of index
     '''
     try:
+        logger.info("API HIT")
         return HealthInfo(status="ok",app=config.APP_NAME)
     except Exception as e:
         logger.error(f"Failed to fetch health data: {e}")
@@ -30,11 +30,11 @@ def readiness_check(conn_check:Callable[[],bool])->CheckInfo:
         raise
 
 def check_version()->VersionInfo:
-    '''
-    The function check Database connection
-    '''
+    """
+    Return service version information.
+    """
     try:
        return VersionInfo(version=config.APP_VERSION, app=config.APP_NAME)
     except Exception as e:
-        logger.error(f"Failed: {e}")
+        logger.error(f"Version check failed: {e}")
         raise

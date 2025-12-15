@@ -1,9 +1,7 @@
-import logging
 from fastapi import APIRouter
 from services.health import get_status,readiness_check,check_version
 from .db import fake_db_check
-
-logger=logging.getLogger(__name__)
+from core.logging import logger
 
 router=APIRouter()
 
