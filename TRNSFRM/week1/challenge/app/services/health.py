@@ -38,3 +38,10 @@ def check_version()->VersionInfo:
     except Exception as e:
         logger.error(f"Version check failed: {e}")
         raise
+
+def add_values(a:int, b:int) -> int:
+    try:
+      return a+b
+    except Exception as e:
+        logger.exception("Error Occurred",{e})
+        

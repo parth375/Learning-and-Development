@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from services.health import get_status,readiness_check,check_version
+from services.health import get_status,readiness_check,check_version,add_values
 from .db import fake_db_check
 from core.logging import logger
 
@@ -40,5 +40,8 @@ def get_version():
         logger.error(f"Readiness check failed: {e}")
         raise
 
-
-
+@router.post('/check_sum')
+def get_sum(data:dict):
+   
+     return add_values(data['a'],data['b'])
+    
