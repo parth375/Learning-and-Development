@@ -4,10 +4,11 @@ from app.main import app
 client=TestClient(app)
 
 def testing_health_api():
-    res=client.get('/health')
-    assert res.status_code==200
+    res = client.get("/readiness_check")
+    assert res.status_code == 503
+    assert res.json()["error"] == "service_unavailable"
 
-    data=res.json()
-    assert data['status']=='ok'
-    assert "app" in data
+    # data=res.json()
+    # assert data['status']=='ok'
+    # assert "app" in data
 

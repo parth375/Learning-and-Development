@@ -3,6 +3,7 @@ from services.health import get_status,readiness_check,check_version,add_values
 from .db import fake_db_check
 from core.logging import logger
 
+
 router=APIRouter()
 
 @router.get('/health')
@@ -18,7 +19,7 @@ def get_health():
         raise
 
 
-@router.get('/readniess')
+@router.get('/readiness_check')
 def check_readiness():
     '''
     This is an GET API that checks the readiness of an configuration
@@ -42,6 +43,8 @@ def get_version():
 
 @router.post('/check_sum')
 def get_sum(data:dict):
+ 
+    return add_values(data['a'],data['b'])
+  
    
-     return add_values(data['a'],data['b'])
     

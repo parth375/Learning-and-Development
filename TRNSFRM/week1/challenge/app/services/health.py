@@ -2,6 +2,7 @@ from schemas.common import HealthInfo,CheckInfo,VersionInfo
 from typing import Callable
 from core.config import config
 from core.logging import logger
+from core.exception import ServiceUnavailableError
 
 
 def get_status()->HealthInfo:
@@ -24,10 +25,11 @@ def readiness_check(conn_check:Callable[[],bool])->CheckInfo:
         if conn_check():
             return CheckInfo(status="connected")
         else:
-            return CheckInfo(status="not_connected")
+           raise ServiceUnavailableError("Dependency check failed")
     except Exception as e:
         logger.error(f"Readiness check failed: {e}")
         raise
+        
 
 def check_version()->VersionInfo:
     """
@@ -41,7 +43,8 @@ def check_version()->VersionInfo:
 
 def add_values(a:int, b:int) -> int:
     try:
-      return a+b
-    except Exception as e:
-        logger.exception("Error Occurred",{e})
-        
+       return a+b
+    except Exception:
+       logger.exception("Error Occured")
+       raise ServiceUnavailableError()
+ 
