@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker,DeclarativeBase
 import yaml
 from urllib.parse import quote
 
@@ -11,4 +11,8 @@ DATABASE_URL= f"{cred['dialect']}+{cred['driver']}://{cred['username']}:{encoded
 engine=create_engine(DATABASE_URL)
 localsession=sessionmaker(bind=engine)
 db=localsession()
+
+class Base(DeclarativeBase):
+   pass
+
 print("connected",engine)
