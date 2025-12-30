@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker,DeclarativeBase
 import yaml
 from urllib.parse import quote
 
-with open('env.yaml','r') as f:
+with open('core/env.yaml','r') as f:
      cred=yaml.safe_load(f)
 
 encoded_password = quote(cred['password'])
@@ -14,5 +14,4 @@ db=localsession()
 
 class Base(DeclarativeBase):
    pass
-
 print("connected",engine)

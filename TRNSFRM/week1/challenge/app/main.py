@@ -1,5 +1,6 @@
 from fastapi import FastAPI,Request
 from routers.routes import router
+from routers.user_routes import user
 from fastapi.responses import JSONResponse
 from core.logging import logger
 from core.exception import ServiceUnavailableError
@@ -7,6 +8,7 @@ from core.exception import ServiceUnavailableError
 app=FastAPI()
 
 app.include_router(router)
+app.include_router(user)
 
 logger.info("Server Started...")
 
