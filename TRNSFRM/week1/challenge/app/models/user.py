@@ -7,5 +7,4 @@ class User(Base):
     id= Column(Integer,primary_key=True)
     name=Column(String,nullable=False)
     email=Column(String,unique=True)
-
-Base.metadata.create_all(bind=engine)
+    age =Column(String)
