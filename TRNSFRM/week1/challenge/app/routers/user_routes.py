@@ -9,9 +9,9 @@ def call_create_user_function(data:User):
     return create_user(data.name,data.email)
 
 
-@user.post("/get_by_id")
-def call_get_by_id_function(data:dict):
-    return fetch_user_by_id(data["id"])
+@user.get("/get_by_id")
+def call_get_by_id_function(id:int):
+    return fetch_user_by_id(id)
 
 @user.get("/get_all_user")
 def call_get_all_user_function():

@@ -15,7 +15,7 @@ def create_user(name:str, email:str):
 
 def fetch_user_by_id(user_id):
      try:
-          user=db.query(User).filter(User.id==user_id)
+          user=db.query(User).filter(User.id==user_id).first()
           db.close()
           return user
      except Exception as e:
