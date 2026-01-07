@@ -25,10 +25,12 @@ DBAPI -> This is the language through which python talks to DB
 DBAPI-> Is the Driver which is built on these and talks on behalf od python
 EX -> Posgtres<-----Pycopg2(DBAPI)------->Python
 
+
 ORM is just an abstraction layer over the real SQL query beneath it also sql query is running just it's forming that
-by itself , 
+by itself,
+
 Second ORM also first talks to DBAPAI driver
-the first step for orm is is creating a engine through your Database connection url
+the first step for orm is is creating a engine through your Database connection url this creates a connection pool
 
 
 DEPENDENCY INJECTION
