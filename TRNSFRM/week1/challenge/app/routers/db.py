@@ -1,5 +1,7 @@
-def fake_db_check()->bool:
+from core.database import db
+def db_connect():
     try:
-       return False
-    except:
-        print('Error connecting to DB')
+       yield db
+    finally:
+        db.close()
+        
