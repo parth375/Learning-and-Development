@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from services.health import get_status,readiness_check,check_version,add_values
-from .db import fake_db_check
+from .db import db_connect
 from core.logging import logger
 
 
@@ -25,7 +25,7 @@ def check_readiness():
     This is an GET API that checks the readiness of an configuration
     '''
     try:
-        return readiness_check(fake_db_check)
+        return readiness_check(db_connect)
     except Exception as e:
         logger.error(f"Readiness check failed: {e}")
         raise
