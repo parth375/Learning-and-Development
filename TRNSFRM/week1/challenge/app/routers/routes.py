@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from fastapi import Depends
+from sqlalchemy.orm import Session
 from services.health import get_status,readiness_check,check_version,add_values
 from .db import db_connect
 from core.logging import logger
@@ -20,12 +22,12 @@ def get_health():
 
 
 @router.get('/readiness_check')
-def check_readiness():
+def check_readiness(db:Session=Depends(db_connect)):
     '''
     This is an GET API that checks the readiness of an configuration
     '''
     try:
-        return readiness_check(db_connect)
+        return readiness_check(db)
     except Exception as e:
         logger.error(f"Readiness check failed: {e}")
         raise

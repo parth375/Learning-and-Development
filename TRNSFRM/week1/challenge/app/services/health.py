@@ -1,5 +1,4 @@
 from schemas.common import HealthInfo,CheckInfo,VersionInfo
-from typing import Callable
 from core.config import config
 from core.logging import logger
 from core.exception import ServiceUnavailableError
@@ -17,12 +16,12 @@ def get_status()->HealthInfo:
         raise
 
 
-def readiness_check(conn_check:Callable[[],bool])->CheckInfo:
+def readiness_check(db)->CheckInfo:
     '''
     The function check Database connection
     '''
     try:
-        if conn_check():
+        if db:
             return CheckInfo(status="connected")
         else:
            raise ServiceUnavailableError("Dependency check failed")
