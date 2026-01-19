@@ -27,7 +27,7 @@ def readiness_check(db)->CheckInfo:
            raise ServiceUnavailableError("Dependency check failed")
     except Exception as e:
         logger.error(f"Readiness check failed: {e}")
-        raise
+        raise ServiceUnavailableError("Dependency check failed")
         
 
 def check_version()->VersionInfo:
