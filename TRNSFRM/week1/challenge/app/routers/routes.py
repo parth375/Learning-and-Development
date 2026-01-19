@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session
-from services.health import get_status,readiness_check,check_version,add_values
+from app.services.health import get_status,readiness_check,check_version,add_values
 from .db import db_connect
-from core.logging import logger
+from app.core.logging import logger
 
 
 router=APIRouter()

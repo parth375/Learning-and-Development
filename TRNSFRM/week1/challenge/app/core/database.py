@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker,DeclarativeBase
 import yaml
 from urllib.parse import quote
 
-with open('core/env.yaml','r') as f:
+with open('app/core/env.yaml','r') as f:
      cred=yaml.safe_load(f)
 
 encoded_password = quote(cred['password'])

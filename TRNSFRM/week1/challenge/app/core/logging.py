@@ -1,5 +1,5 @@
 import logging
-from core.config import config
+from app.core.config import config
 
 logger=logging.getLogger(config.APP_NAME)
 logger.setLevel(logging.DEBUG)

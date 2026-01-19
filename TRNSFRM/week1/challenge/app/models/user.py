@@ -1,4 +1,4 @@
-from core.database import Base,engine
+from app.core.database import Base,engine
 from sqlalchemy import Column,Integer,String
 
 class User(Base):

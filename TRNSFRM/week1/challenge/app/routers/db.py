@@ -1,4 +1,4 @@
-from core.database import db
+from app.core.database import db
 
 def db_connect():
     try:

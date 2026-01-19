@@ -1,6 +1,6 @@
-from core.database import db
-from models.user import User
-from core.logging import logger
+from app.core.database import db
+from app.models.user import User
+from app.core.logging import logger
 
 def create_user(name:str, email:str,db):
     try:

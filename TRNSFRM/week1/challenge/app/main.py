@@ -1,9 +1,9 @@
 from fastapi import FastAPI,Request
-from routers.routes import router
-from routers.user_routes import user
+from app.routers.routes import router
+from app.routers.user_routes import user
 from fastapi.responses import JSONResponse
-from core.logging import logger
-from core.exception import ServiceUnavailableError
+from app.core.logging import logger
+from app.core.exception import ServiceUnavailableError
 
 app=FastAPI()
 

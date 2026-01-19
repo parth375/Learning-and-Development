@@ -1,7 +1,7 @@
-from schemas.common import HealthInfo,CheckInfo,VersionInfo
-from core.config import config
-from core.logging import logger
-from core.exception import ServiceUnavailableError
+from app.schemas.common import HealthInfo,CheckInfo,VersionInfo
+from app.core.config import config
+from app.core.logging import logger
+from app.core.exception import ServiceUnavailableError
 
 
 def get_status()->HealthInfo:
