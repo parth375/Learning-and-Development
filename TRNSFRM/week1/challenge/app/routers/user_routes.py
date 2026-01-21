@@ -1,21 +1,30 @@
-from fastapi import APIRouter
-from app.schemas.user import User
-from fastapi import Depends
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from .db import db_connect
-from app.services.user import create_user,fetch_all_users,fetch_user_by_id
+from app.core.database import get_db
+from app.schemas.user import UserCreate, UserRead
+from app.services.user import create_user, get_user_by_id, get_all_users
 
-user=APIRouter()
-
-@user.post("/create_user")
-def call_create_user_function(data:User,db:Session=Depends(db_connect)):
-    return create_user(data.name,data.email,db)
+router = APIRouter(prefix="/users", tags=["users"])
 
 
-@user.get("/get_by_id")
-def call_get_by_id_function(id:int,db:Session=Depends(db_connect)):
-    return fetch_user_by_id(id,db)
+@router.post("/", response_model=UserRead)
+def create_user_endpoint(
+    user_in: UserCreate,
+    db: Session = Depends(get_db),
+):
+    return create_user(db, user_in)
 
-@user.get("/get_all_user")
-def call_get_all_user_function(db:Session=Depends(db_connect)):
-    return fetch_all_users(db)
+
+@router.get("/{user_id}", response_model=UserRead)
+def get_user_endpoint(
+    user_id: int,
+    db: Session = Depends(get_db),
+):
+    return get_user_by_id(db, user_id)
+
+
+@router.get("/", response_model=list[UserRead])
+def list_users_endpoint(
+    db: Session = Depends(get_db),
+):
+    return get_all_users(db)

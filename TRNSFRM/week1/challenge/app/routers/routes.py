@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from app.services.health import get_status,readiness_check,check_version,add_values
-from .db import db_connect
+from app.core.database import get_db
 from app.core.logging import logger
 
 
@@ -22,7 +22,7 @@ def get_health():
 
 
 @router.get('/readiness_check')
-def check_readiness(db:Session=Depends(db_connect)):
+def check_readiness(db:Session=Depends(get_db)):
     '''
     This is an GET API that checks the readiness of an configuration
     '''

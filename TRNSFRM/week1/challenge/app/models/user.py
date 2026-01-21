@@ -1,10 +1,10 @@
-from app.core.database import Base,engine
+from app.core.database import Base
 from sqlalchemy import Column,Integer,String
 
 class User(Base):
-    __tablename__="user"
+    __tablename__="users"
 
-    id= Column(Integer,primary_key=True)
-    name=Column(String,nullable=False)
-    email=Column(String,unique=True)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(255), nullable=False)
+    email = Column(String(255), unique=True, index=True, nullable=False)
 

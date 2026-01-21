@@ -1,17 +1,25 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker,DeclarativeBase
-import yaml
-from urllib.parse import quote
+from app.core.config import setting
 
-with open('app/core/env.yaml','r') as f:
-     cred=yaml.safe_load(f)
+DATABASE_URL=( f"{setting.DIALECT}+{setting.DRIVER}://"
+    f"{setting.DB_USERNAME}:{setting.DB_PASSWORD}@"
+    f"{setting.DB_HOST}:{setting.DB_PORT}/{setting.DB_NAME}")
 
-encoded_password = quote(cred['password'])
-DATABASE_URL= f"{cred['dialect']}+{cred['driver']}://{cred['username']}:{encoded_password}@{cred['hostname']}:{cred['port']}/{cred['db']}"
-engine=create_engine(DATABASE_URL)
-localsession=sessionmaker(bind=engine)
-db=localsession()
+engine=create_engine(DATABASE_URL,pool_pre_ping=True)
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine,
+)
+db=SessionLocal()
 
 class Base(DeclarativeBase):
    pass
-print("connected",engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
