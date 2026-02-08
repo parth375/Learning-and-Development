@@ -11,3 +11,5 @@ If i am able to stay consistent and able to complete tasks.
 If I show up 5 days this week, what will I feel proud of?
 
 The consistency and commitment
+
+Believe in yourself
